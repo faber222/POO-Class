@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class HomeWork1 {
     public static void main(String[] args) {
         int Age = 0;
+
         Scanner Keyboard = new Scanner(System.in);
         System.out.print("Enter your name: ");
         String Name = Keyboard.nextLine();
