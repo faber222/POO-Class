@@ -10,17 +10,13 @@ public class RandomNumber {
         }
 
         Scanner keyboard = new Scanner(System.in);
-
-        while (true) {
+        int numberWinner = 0;
+        while (numberWinner != number) {
             System.out.print("Enter a number: ");
-            int numberWinner = keyboard.nextInt();
-            if (numberWinner == number) {
-                System.out.println("You win!");
-                break;
-            }
+            numberWinner = keyboard.nextInt();
             System.out.println("Wrong! Try again...");
-
         }
+        System.out.println("You win!");
         keyboard.close();
     }
 }
