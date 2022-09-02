@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class HomeWork1 {
     public static void main(String[] args) {
-        int age = 0;
-
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter your name: ");
         String name = keyboard.nextLine();
@@ -16,9 +14,7 @@ public class HomeWork1 {
 
         keyboard.close();
 
-        age = yearCalc(year, currentYear);
-
-        System.out.println(name + " has " + age);
+        System.out.println(name + " has " + yearCalc(year, currentYear));
 
     }
 

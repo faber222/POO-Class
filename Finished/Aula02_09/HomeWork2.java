@@ -1,7 +1,6 @@
-import java.util.Scanner;
-
 public class HomeWork2 {
-    static float factorial(float n) {
+    
+    static long factorial(int n) {
         if (n == 0)
             return 1;
         if (n < 0)
@@ -11,13 +10,14 @@ public class HomeWork2 {
     }
 
     public static void main(String[] args) {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.print("Enter a fact number: ");
-        float number = keyboard.nextFloat();
+        int number = 0;
+        if (args.length > 0) {
+            number = Integer.parseInt(args[0]);
+        }
 
-        float factorial;
+        long factorial;
         factorial = factorial(number);
         System.out.println("The factorial of " + number + " is " + factorial);
-        keyboard.close();
+
     }
 }

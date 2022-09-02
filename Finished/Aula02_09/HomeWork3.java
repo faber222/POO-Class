@@ -1,8 +1,6 @@
-import java.util.Scanner;
-
 public class HomeWork3 {
 
-    static float factorial(float n) {
+    static long factorial(int n) {
         if (n == 0)
             return 1;
         if (n < 0)
@@ -12,18 +10,13 @@ public class HomeWork3 {
     }
 
     public static void main(String[] args) {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.print("Enter a factorial number: ");
-        float number = keyboard.nextFloat();
+        int number = Integer.parseInt(args[0]);
+        int number2 = Integer.parseInt(args[1]);
 
-        System.out.print("Enter a second factorial number: ");
-        float number2 = keyboard.nextFloat();
-
-        float factorial = factorial(number);
-        float factorial2 = factorial(number2);
-        float result = factorial + factorial2;
+        long factorial = factorial(number);
+        long factorial2 = factorial(number2);
+        long result = factorial + factorial2;
         System.out.println("The factorial between the numbers " + number + " and " + number2
                 + " is " + result);
-        keyboard.close();
     }
 }
