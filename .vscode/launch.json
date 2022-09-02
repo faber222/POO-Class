@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch PrimeNumber",
+            "request": "launch",
+            "mainClass": "PrimeNumber",
+            "projectName": "POO-Class_7a607511"
+        },
+        {
+            "type": "java",
+            "name": "Launch YearChecker",
+            "request": "launch",
+            "mainClass": "YearChecker",
+            "projectName": "POO-Class_7a607511"
+        },
+        {
+            "type": "java",
             "name": "Launch RandomNumber",
             "request": "launch",
             "mainClass": "RandomNumber",
