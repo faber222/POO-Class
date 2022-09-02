@@ -11,13 +11,13 @@ public class HomeWork2 {
     }
 
     public static void main(String[] args) {
-        Scanner Keyboard = new Scanner(System.in);
+        Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter a fact number: ");
-        float Number = Keyboard.nextFloat();
+        float number = keyboard.nextFloat();
 
-        float Fact;
-        Fact = factorial(Number);
-        System.out.println("The factorial of " + Number + " is " + Fact);
-        Keyboard.close();
+        float factorial;
+        factorial = factorial(number);
+        System.out.println("The factorial of " + number + " is " + factorial);
+        keyboard.close();
     }
 }

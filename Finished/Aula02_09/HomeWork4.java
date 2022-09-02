@@ -12,16 +12,16 @@ public class HomeWork4 {
     }
 
     public static void main(String[] args) {
-        Scanner Keyboard = new Scanner(System.in);
-        float Number[] = new float[4];
+        Scanner keyboard = new Scanner(System.in);
+        float number[] = new float[4];
 
         for (int i = 0; i < 4; i++) {
             System.out.print("Enter a fact number: ");
-            Number[i] = Keyboard.nextFloat();
+            number[i] = keyboard.nextFloat();
         }
         for (int i = 0; i < 4; i++) {
-            System.out.println(factorial(Number[i]));
+            System.out.println(factorial(number[i]));
         }
-        Keyboard.close();
+        keyboard.close();
     }
 }

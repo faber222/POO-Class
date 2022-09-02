@@ -12,18 +12,18 @@ public class HomeWork3 {
     }
 
     public static void main(String[] args) {
-        Scanner Keyboard = new Scanner(System.in);
+        Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter a factorial number: ");
-        float Number = Keyboard.nextFloat();
+        float number = keyboard.nextFloat();
 
         System.out.print("Enter a second factorial number: ");
-        float Number2 = Keyboard.nextFloat();
+        float number2 = keyboard.nextFloat();
 
-        float Factorial = factorial(Number);
-        float Factorial2 = factorial(Number2);
-        float Result = Factorial + Factorial2;
-        System.out.println("The factorial between the numbers " + Number + " and " + Number2
-                + " is " + Result);
-        Keyboard.close();
+        float factorial = factorial(number);
+        float factorial2 = factorial(number2);
+        float result = factorial + factorial2;
+        System.out.println("The factorial between the numbers " + number + " and " + number2
+                + " is " + result);
+        keyboard.close();
     }
 }

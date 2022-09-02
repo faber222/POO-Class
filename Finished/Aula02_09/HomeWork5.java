@@ -11,23 +11,23 @@ public class HomeWork5 {
     }
 
     public static void main(String[] args) {
-        Scanner Keyboard = new Scanner(System.in);
-        int Number[] = new int[2];
+        Scanner keyboard = new Scanner(System.in);
+        int number[] = new int[2];
 
         for (int i = 0; i < 2; i++) {
             System.out.print("Enter a fact number: ");
-            Number[i] = Keyboard.nextInt();
+            number[i] = keyboard.nextInt();
         }
-        int x = Number[0];
-        int y = Number[1];
+        int x = number[0];
+        int y = number[1];
         if (x < y) {
-            x = Number[1];
-            y = Number[0];
+            x = number[1];
+            y = number[0];
         }
 
         for (int i = y; i <= x; i++) {
             System.out.println(factorial(i));
         }
-        Keyboard.close();
+        keyboard.close();
     }
 }

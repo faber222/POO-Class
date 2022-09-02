@@ -2,27 +2,27 @@ import java.util.Scanner;
 
 public class HomeWork1 {
     public static void main(String[] args) {
-        int Age = 0;
+        int age = 0;
 
-        Scanner Keyboard = new Scanner(System.in);
+        Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter your name: ");
-        String Name = Keyboard.nextLine();
+        String name = keyboard.nextLine();
 
         System.out.print("Enter the year you were born: ");
-        int Year = Keyboard.nextInt();
+        int year = keyboard.nextInt();
 
         System.out.print("Enter the current year: ");
-        int CurrentYear = Keyboard.nextInt();
+        int currentYear = keyboard.nextInt();
 
-        Keyboard.close();
+        keyboard.close();
 
-        Age = YearCalc(Year, CurrentYear);
+        age = yearCalc(year, currentYear);
 
-        System.out.println(Name + " has " + Age);
+        System.out.println(name + " has " + age);
 
     }
 
-    public static int YearCalc(int Year, int CurrentYear) {
-        return CurrentYear - Year;
+    public static int yearCalc(int year, int currentYear) {
+        return currentYear - year;
     }
 }
