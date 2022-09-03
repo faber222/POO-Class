@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class HomeWork5 {
-    static float factorial(float n) {
+    static long factorial(int n) {
         if (n == 0)
             return 1;
         if (n < 0)

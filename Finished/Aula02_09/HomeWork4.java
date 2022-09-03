@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class HomeWork4 {
 
-    static float factorial(float n) {
+    static double factorial(int n) {
         if (n == 0)
             return 1;
         if (n < 0)
@@ -13,11 +13,11 @@ public class HomeWork4 {
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        float number[] = new float[4];
+        int number[] = new int[4];
 
         for (int i = 0; i < 4; i++) {
             System.out.print("Enter a fact number: ");
-            number[i] = keyboard.nextFloat();
+            number[i] = keyboard.nextInt();
         }
         for (int i = 0; i < 4; i++) {
             System.out.println(factorial(number[i]));

@@ -12,10 +12,8 @@ public class HomeWork1 {
         System.out.print("Enter the current year: ");
         int currentYear = keyboard.nextInt();
 
-        keyboard.close();
-
         System.out.println(name + " has " + yearCalc(year, currentYear));
-
+        keyboard.close();
     }
 
     public static int yearCalc(int year, int currentYear) {
