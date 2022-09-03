@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MatrixForAnySize",
+            "request": "launch",
+            "mainClass": "MatrixForAnySize",
+            "projectName": "POO-Aulas_a06273eb"
+        },
+        {
+            "type": "java",
             "name": "Launch PrimeNumber",
             "request": "launch",
             "mainClass": "PrimeNumber",
