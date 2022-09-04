@@ -11,6 +11,7 @@ public class ArgumentoLinha {
             // converte string para double
             // Double.parseDouble
             int number = Integer.parseInt(args[0]);
+            System.out.println(number);
             
         }
         System.out.println("Fim do programa!");
