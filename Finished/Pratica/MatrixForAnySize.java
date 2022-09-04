@@ -1,12 +1,16 @@
 import java.util.Scanner;
 
 public class MatrixForAnySize {
-    public static int matrixValues(int x, int y) {
-        Scanner keyboard2 = new Scanner(System.in);
-        System.out.print("Enter the matrix value: [" + x + "]" + "[" + y + "]:");
-        int matrix = keyboard2.nextInt();
-        keyboard2.nextLine();
-        return matrix;
+    public static String matrixValues(int x, int y) {
+        String aster = "*";
+        if (x == 0 || y == 0) {
+            return aster;
+        }
+        if ((x % y) == 0 || (y % x) == 0) {
+            return aster;
+        } else {
+            return " ";
+        }
     }
 
     public static void main(String[] args) {
@@ -18,11 +22,12 @@ public class MatrixForAnySize {
         int y = keyboard.nextInt();
         keyboard.nextLine();
 
-        int[][] vet = new int[x][y];
+        String[][] vet = new String[x][y];
 
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 vet[i][j] = matrixValues(i, j);
+                System.out.print("[" + i + "]" + "[" + j + "]:");
                 System.out.println(vet[i][j]);
             }
         }
