@@ -1,4 +1,4 @@
-public abstract class YearChecker {
+public class YearChecker {
     public static void main(String[] args) {
         if (args.length > 0) {
             int year = Integer.parseInt(args[0]);

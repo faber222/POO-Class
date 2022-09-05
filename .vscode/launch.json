@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SpinningDonuts",
+            "request": "launch",
+            "mainClass": "SpinningDonuts",
+            "projectName": "POO-Class_7a607511"
+        },
+        {
+            "type": "java",
             "name": "Launch MatrixForAnySize",
             "request": "launch",
             "mainClass": "MatrixForAnySize",
