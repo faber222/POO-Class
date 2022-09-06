@@ -27,9 +27,10 @@ public class MatrixForAnySize {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 vet[i][j] = matrixValues(i, j);
-                System.out.print("[" + i + "]" + "[" + j + "]:");
-                System.out.println(vet[i][j]);
+                //System.out.print("[" + i + "]" + "[" + j + "]:");
+                System.out.print(vet[i][j]);
             }
+            System.out.println("");
         }
     }
 }
