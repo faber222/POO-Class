@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class MatrixForAnySize {
     public static String matrixValues(int x, int y) {
         String aster = "*";
@@ -14,23 +12,21 @@ public class MatrixForAnySize {
     }
 
     public static void main(String[] args) {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.print("Enter the value for x: ");
-        int x = keyboard.nextInt();
-        keyboard.nextLine();
-        System.out.print("Enter the value for y: ");
-        int y = keyboard.nextInt();
-        keyboard.nextLine();
+        if (args.length > 0) {
+            int x = Integer.parseInt(args[0]);
+            int y = Integer.parseInt(args[1]);
 
-        String[][] vet = new String[x][y];
+            String[][] vet = new String[x][y];
 
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < y; j++) {
-                vet[i][j] = matrixValues(i, j);
-                //System.out.print("[" + i + "]" + "[" + j + "]:");
-                System.out.print(vet[i][j]);
+            for (int i = 0; i < x; i++) {
+                for (int j = 0; j < y; j++) {
+                    vet[i][j] = matrixValues(i, j);
+                    // System.out.print("[" + i + "]" + "[" + j + "]:");
+                    System.out.print(vet[i][j]);
+                }
+                System.out.println("");
             }
-            System.out.println("");
         }
+
     }
 }
