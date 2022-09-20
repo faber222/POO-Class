@@ -15,8 +15,6 @@ public class Tabuleiro {
         sorteiaMinas(); // coloca, aleatoriamente, 10 minas no tabuleiro de minas
         preencheDicas();// preenche o tabuleiro de minas com o número de minas vizinhas
         iniciaTabuleiro();// inicia o tabuleiro de exibição com _
-        exibeMinas();
-
     }
 
     public boolean ganhou() {
