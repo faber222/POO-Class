@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
     // importando arquivo JAR que est ́a dentro do diretório libs
-    implementation files('./libs/barcode.jar')
+    implementation files('libs/barcode.jar')
 
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
