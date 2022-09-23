@@ -1,3 +1,4 @@
+package CodigosWebTeste.campoMinado;
 public class Jogo {
     private Tabuleiro board;
     boolean terminar = false;

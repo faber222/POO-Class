@@ -1,3 +1,4 @@
+package CodigosWebTeste.campoMinado;
 import java.util.Random;
 import java.util.Scanner;
 

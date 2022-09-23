@@ -11,5 +11,6 @@ public class ProcessaEntrada {
             System.out.println(loginVet[0]);
 
         }
+        keyboard.close();
     }
 }

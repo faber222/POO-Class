@@ -29,6 +29,7 @@ public class ProcessaFilter {
                         System.out.println(keyboard.nextLine().toLowerCase());
                     }
                 }
+                keyboard.close();
             }
         } catch (Exception e) {
             System.out.println("Invalid parameter");
