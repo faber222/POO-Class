@@ -4,63 +4,58 @@ import java.util.Random;
 
 public class BuzzLightYear {
 
-    private String acao;
-    private String fala;
-    private String asa;
-    private String laser;
-    private String capacete;
+    // atributos
+    private boolean capaceteAberto;
+    private boolean asaAberta;
+    private String[] fala;
 
-    public void getAcao() {
-        this.acao = "BuzzLightYear, golpe de karatê!";
-        showOnTheScreen(acao);
+    public BuzzLightYear() {
+        this.asaAberta = false;
+        this.capaceteAberto = false;
+        this.fala = new String[] {
+                "Isto não é voar. Isto é cair, com estilo!",
+                "Ao infinito e além!",
+                "Nunca duvidei de mim mesmo, Comandante, e não vou começar agora!",
+                "Embora você tenha tentado acabar comigo, a vingança não é um ideal que promovemos no meu planeta.",
+                "Comando estelar, pronto para voar!",
+                "Talvez não tenha vida inteligente por aqui!" };
+    }
+ 
+    public boolean isCapaceteAberto() {
+        return capaceteAberto;
     }
 
-    public void getFala() {
-        final Random r = new Random();
-        final int sortNumber = r.nextInt(5) + 1;
-        switch (sortNumber) {
-            case 1:
-                this.fala = "Isto não é voar. Isto é cair, com estilo!";
-                break;
-            case 2:
-                this.fala = "Ao infinito e além!";
-                break;
-            case 3:
-                this.fala = "Nunca duvidei de mim mesmo, Comandante, e não vou começar agora!";
-                break;
-            case 4:
-                this.fala = "Embora você tenha tentado acabar comigo, a vingança não é um ideal que promovemos no meu planeta.";
-                break;
-            case 5:
-                this.fala = "Comando estelar, pronto para voar!";
-                break;
-            case 6:
-                this.fala = "Talvez não tenha vida inteligente por aqui!";
-                break;
-            default:
-                break;
-        }
-        showOnTheScreen(fala);
-        
+    public boolean isAsaAberta() {
+        return asaAberta;
     }
 
-    public void getAsa() {
-        this.asa = "BuzzLightYear, abrir asa!";
-        showOnTheScreen(asa);
+    public void abrirCapacete() {
+        this.capaceteAberto = true;
     }
 
-    public void getLaser() {
-        this.laser = "BuzzLightYear, disparar laser!";
-        showOnTheScreen(laser);
+    public void fecharCapacete() {
+        this.capaceteAberto = false;
     }
 
-    public void getCapacete() {
-        this.capacete = "BuzzLightYear, abrir capacete";
-        showOnTheScreen(capacete);
+    public boolean abrirFecharAsa() {
+        this.asaAberta = !this.asaAberta;
+        return this.asaAberta;
     }
 
-    private void showOnTheScreen(final String acao) {
-        System.out.println(acao);
+    // metodo laser
+    public String dispararLaser() {
+        return "Disparando laser";
+    }
+
+    // dar golpe
+    public String golpear() {
+        return "Golpe";
+    }
+
+    public String falarFrase() {
+        Random r = new Random();
+        int number = r.nextInt(this.fala.length);
+        return this.fala[number];
     }
 
 }
