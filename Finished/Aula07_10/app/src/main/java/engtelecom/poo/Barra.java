@@ -24,7 +24,7 @@ public class Barra {
         }
     }
 
-    public void iniciar() throws InterruptedException {
+    public void iniciar(boolean percentual) throws InterruptedException {
         AnsiConsole.systemInstall();
         System.out.print(ansi().reset().eraseScreen().cursor(1, 1));
 
@@ -35,10 +35,21 @@ public class Barra {
         barra += "]";
 
         System.out.print(ansi().fg(this.corTamanho).a(barra));
-        for (int i = 2; i < 22; i++) {
-            System.out.print(ansi().reset().cursor(1, i).fg(this.corProgresso).a(this.caracterProgresso));
-            Thread.sleep(100); // dormindo 100ms
+        if (percentual) {
+            int x = 5;
+            for (int i = 2; i < 22; i++) {
+                System.out.print(ansi().reset().cursor(1, i).fg(this.corProgresso).a(this.caracterProgresso));
+                Thread.sleep(100); // dormindo 100ms
+                System.out.print(ansi().cursor(1, this.tamanho + 3).a(" " + x + "/100"));
+                x += 5;
+            }
+        } else {
+            for (int i = 2; i < 22; i++) {
+                System.out.print(ansi().reset().cursor(1, i).fg(this.corProgresso).a(this.caracterProgresso));
+                Thread.sleep(100); // dormindo 100ms
+            }
         }
+
         System.out.println();
         AnsiConsole.systemUninstall();
     }
