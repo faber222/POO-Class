@@ -11,6 +11,6 @@ public class App {
     public static void main(String[] args) throws Exception {
         Barra progresso = new Barra(20, GREEN, "=", RED, "+");
 
-        progresso.iniciar("ima", 125);
+        progresso.iniciar("imagem.png", 12.5);
     }
 }

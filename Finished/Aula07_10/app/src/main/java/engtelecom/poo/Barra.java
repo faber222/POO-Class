@@ -24,10 +24,13 @@ public class Barra {
         }
     }
 
+    // finalizado
     public void iniciar(boolean percentual) throws InterruptedException {
         AnsiConsole.systemInstall();
+        // limpa a tela e posiciona no inicio
         System.out.print(ansi().reset().eraseScreen().cursor(1, 1));
 
+        // desenha a barra de carregamento
         String barra = "[";
         for (int i = 0; i < this.tamanho; i++) {
             barra += this.caracterTamanho;
@@ -39,14 +42,14 @@ public class Barra {
             int x = 5;
             for (int i = 2; i < 22; i++) {
                 System.out.print(ansi().reset().cursor(1, i).fg(this.corProgresso).a(this.caracterProgresso));
-                Thread.sleep(100); // dormindo 100ms
+                Thread.sleep(1000); // dormindo 100ms
                 System.out.print(ansi().cursor(1, this.tamanho + 3).a(" " + x + "/100"));
                 x += 5;
             }
         } else {
             for (int i = 2; i < 22; i++) {
                 System.out.print(ansi().reset().cursor(1, i).fg(this.corProgresso).a(this.caracterProgresso));
-                Thread.sleep(100); // dormindo 100ms
+                Thread.sleep(1000); // dormindo 100ms
             }
         }
 
@@ -66,13 +69,35 @@ public class Barra {
 
         System.out.print(ansi().fg(this.corTamanho).a(nome + ": " + barra));
         tamanhoArquivo = tamanhoArquivo * 8;
-      
-        int x = 5;
-        for (int i = (nome.length() + 4); i < this.tamanho; i++) {
-            System.out.print(ansi().reset().cursor(1, i).fg(this.corProgresso).a(this.caracterProgresso));
-            Thread.sleep(100); // dormindo 100ms
-            System.out.print(ansi().cursor(1, this.tamanho + 3).a(" " + x + "/100"));
-            x += 5;
+        int ajusteTamanho = nome.length() + 4;
+
+        int x = (int) tamanhoArquivo / 100;
+        int m = x / 2;
+        int y = 20 / x;
+        int k = this.tamanho + ajusteTamanho;
+        x = x / 2;
+
+        if (tamanhoArquivo > 100) {
+            for (int i = (nome.length() + 4); i < k; i++) {
+                for (int j = 0; j < y; j++) {
+                    if ((i + j) != k) {
+                        System.out
+                                .print(ansi().reset().cursor(1, i + j).fg(this.corProgresso).a(this.caracterProgresso));
+                        Thread.sleep(100); // dormindo 100ms
+                        System.out.print(ansi().cursor(1, this.tamanho + 3 + ajusteTamanho).a(" " + m + "/100"));
+                    }
+                }
+                m += x;
+
+            }
+        } else {
+            barra = "[";
+            Thread.sleep(1000); // dormindo 100ms
+            for (int i = 0; i < this.tamanho; i++) {
+                barra += this.caracterProgresso;
+            }
+            barra += "]";
+            System.out.print(ansi().reset().cursor(1, 1).fg(this.corProgresso).a(nome + ": " + barra + " 100/100"));
         }
 
         System.out.println();
