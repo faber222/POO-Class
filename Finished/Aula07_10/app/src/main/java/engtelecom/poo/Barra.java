@@ -53,4 +53,29 @@ public class Barra {
         System.out.println();
         AnsiConsole.systemUninstall();
     }
+
+    public void iniciar(String nome, double tamanhoArquivo) throws InterruptedException {
+        AnsiConsole.systemInstall();
+        System.out.print(ansi().reset().eraseScreen().cursor(1, 1));
+
+        String barra = "[";
+        for (int i = 0; i < this.tamanho; i++) {
+            barra += this.caracterTamanho;
+        }
+        barra += "]";
+
+        System.out.print(ansi().fg(this.corTamanho).a(nome + ": " + barra));
+        tamanhoArquivo = tamanhoArquivo * 8;
+      
+        int x = 5;
+        for (int i = (nome.length() + 4); i < this.tamanho; i++) {
+            System.out.print(ansi().reset().cursor(1, i).fg(this.corProgresso).a(this.caracterProgresso));
+            Thread.sleep(100); // dormindo 100ms
+            System.out.print(ansi().cursor(1, this.tamanho + 3).a(" " + x + "/100"));
+            x += 5;
+        }
+
+        System.out.println();
+        AnsiConsole.systemUninstall();
+    }
 }
