@@ -73,9 +73,8 @@ public class Barra {
 
         int x = (int) tamanhoArquivo / 100;
         int m = x / 2;
-        int y = 20 / x;
+        int y = this.tamanho / x;
         int k = this.tamanho + ajusteTamanho;
-        x = x / 2;
 
         if (tamanhoArquivo > 100) {
             for (int i = (nome.length() + 4); i < k; i++) {
@@ -88,11 +87,10 @@ public class Barra {
                     }
                 }
                 m += x;
-
             }
         } else {
             barra = "[";
-            Thread.sleep(1000); // dormindo 100ms
+            Thread.sleep(1000); // dormindo 1000ms
             for (int i = 0; i < this.tamanho; i++) {
                 barra += this.caracterProgresso;
             }

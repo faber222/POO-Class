@@ -9,8 +9,8 @@ import javax.imageio.ImageIO;
 public class App {
     // Atente-se ao throws Exception na declara ̧c~ao do m ́etodo
     public static void main(String[] args) throws Exception {
-        Barra progresso = new Barra(20, GREEN, "=", RED, "+");
+        Barra progresso = new Barra(100, GREEN, "=", RED, "+");
 
-        progresso.iniciar("imagem.png", 12.5);
+        progresso.iniciar("imagem.png", 125);
     }
 }
