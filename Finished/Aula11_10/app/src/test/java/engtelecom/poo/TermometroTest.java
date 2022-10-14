@@ -34,8 +34,8 @@ public class TermometroTest {
     public void imprimeDiferenca() {
         Termometro t = new Termometro(100, 0, 32);
         Termometro t2 = new Termometro(100, 0, 24);
-        assertEquals(8, t.diferenca(t2, 'C'));
-        assertEquals(14.4, t.diferenca(t2, 'F'));
-        assertEquals(8, t.diferenca(t2, 'K'));
+        assertEquals(32 - 24, t.diferenca(t2, 'C'));
+        assertEquals(32 - 24, t.diferenca(t2, 'K'));
+        assertEquals(89.6 - 75.2, t.diferenca(t2, 'F'));
     }
 }
