@@ -9,6 +9,8 @@ public class BuzzLightYear {
     private boolean asaAberta;
     private String[] fala;
 
+    private Laser laser;
+
     public BuzzLightYear() {
         this.asaAberta = false;
         this.capaceteAberto = false;
@@ -19,8 +21,9 @@ public class BuzzLightYear {
                 "Embora você tenha tentado acabar comigo, a vingança não é um ideal que promovemos no meu planeta.",
                 "Comando estelar, pronto para voar!",
                 "Talvez não tenha vida inteligente por aqui!" };
+        this.laser = new Laser(1, 3, "Verde", 100);
     }
- 
+
     public boolean isCapaceteAberto() {
         return capaceteAberto;
     }
@@ -44,7 +47,7 @@ public class BuzzLightYear {
 
     // metodo laser
     public String dispararLaser() {
-        return "Disparando laser";
+        return this.laser.disparar();
     }
 
     // dar golpe
