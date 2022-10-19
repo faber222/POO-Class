@@ -1,8 +1,6 @@
 package engtelecom.poo;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
-
-import org.checkerframework.common.util.report.qual.ReportUnqualified;
+import java.util.List;
 
 public class Robo {
     private static final int MAX = 100;
@@ -13,7 +11,9 @@ public class Robo {
     private int coordenadaX; // coordenada inicial em x
     private int coordenadaY; // coordenada inicial em y
     private int maxMovimentos; // numero de movimentos restantes
-    private int movimentosPorTurno; // maximo de movimentos por turno
+    private int unidadesPorTurno; // maximo de movimentos por turno
+
+    private String[] plano; // plano de exploração do robo
 
     /**
      * Ao instanciar um objeto dessa classe, deve-se indicar o identificador único
@@ -24,19 +24,19 @@ public class Robo {
      * sua bateria e um inteiro para representar quantas unidades irá
      * caminhar quando for solicitado que se movimente.
      * 
-     * @param id                 String de identificação do robo
-     * @param orientacao         String para representar posicao
-     * @param tamanhoArea        inteiro para representar o quadrado, deve-se
-     *                           pensar em m²
-     * @param coordenadaX        Inteiro para representar coordenada inicial x
-     * @param coordenadaY        Inteiro para representar coordenada inicial y
-     * @param maxMovimentos      Inteiro para representar a quantidade de
-     *                           movimentos restantes
-     * @param movimentosPorTurno Inteiro para representar a quantidade maxima de
-     *                           movimentos por turno
+     * @param id               String de identificação do robo
+     * @param orientacao       String para representar posicao
+     * @param tamanhoArea      inteiro para representar o quadrado, deve-se
+     *                         pensar em m²
+     * @param coordenadaX      Inteiro para representar coordenada inicial x
+     * @param coordenadaY      Inteiro para representar coordenada inicial y
+     * @param maxMovimentos    Inteiro para representar a quantidade de
+     *                         movimentos restantes
+     * @param unidadesPorTurno Inteiro para representar a quantidade maxima de
+     *                         unidades por turno
      */
     public Robo(String id, int tamanhoArea, int coordenadaX, int coordenadaY, String orientacao,
-            int maxMovimentos, int movimentosPorTurno) {
+            int maxMovimentos, int unidadesPorTurno) {
         this.maxMovimentos = verificaMovimentos(maxMovimentos);
 
         if (tamanhoArea >= MIN) {
@@ -52,7 +52,7 @@ public class Robo {
         this.id = id;
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
-        this.movimentosPorTurno = movimentosPorTurno;
+        this.unidadesPorTurno = unidadesPorTurno;
     }
 
     private int verificaMovimentos(int maxMovimentos) {
@@ -65,14 +65,54 @@ public class Robo {
         return MIN;
     }
 
+    /**
+     * @return the maxMovimentos
+     */
+    public int getMaxMovimentos() {
+        return maxMovimentos;
+    }
+
     private boolean verificaOrientacao(String orientacao) {
         return (orientacao == "Norte" || orientacao == "Sul" || orientacao == "Leste" || orientacao == "Oeste");
     }
 
     private boolean verificaCoordenada(int coordenadaX, int coordenadaY) {
+        return true;
     }
 
-    private boolean verificaTurnos(int movimentosPorTurno) {
+    private boolean verificaTurnos(int unidadesPorTurno) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "coordenadaX=" + coordenadaX + ", coordenadaY=" + coordenadaY + ", " + orientacao + "";
+    }
+
+    public String getCoordenadaAnterior() {
+        return "";
+    }
+
+    public String girarRobo() {
+        return "";
+    }
+
+    public boolean moverRobo() {
+        return true;
+    }
+
+    /**
+     * 
+     * @param planoRobo String para plano de exploração
+     * @return true/false
+     */
+    public boolean carregaPlanos(String planoRobo) {
+        this.plano = planoRobo.split("");
+        return true;
+    }
+
+    public boolean executaPlano() {
+        return true;
     }
 
 }
