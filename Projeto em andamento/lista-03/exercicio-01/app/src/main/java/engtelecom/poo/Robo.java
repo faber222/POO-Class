@@ -1,6 +1,7 @@
 package engtelecom.poo;
 
 import java.util.List;
+import java.util.Random;
 
 public class Robo {
     private static final int MAX = 100;
@@ -10,7 +11,7 @@ public class Robo {
     private int tamanhoArea; // tamanho em m² do local
     private int coordenadaX; // coordenada inicial em x
     private int coordenadaY; // coordenada inicial em y
-    private int maxMovimentos; // numero de movimentos restantes
+    private int movimentos; // numero de movimentos restantes
     private int unidadesPorTurno; // maximo de movimentos por turno
 
     private String[] plano; // plano de exploração do robo
@@ -30,17 +31,20 @@ public class Robo {
      *                         pensar em m²
      * @param coordenadaX      Inteiro para representar coordenada inicial x
      * @param coordenadaY      Inteiro para representar coordenada inicial y
-     * @param maxMovimentos    Inteiro para representar a quantidade de
+     * @param movimentos       Inteiro para representar a quantidade de
      *                         movimentos restantes
      * @param unidadesPorTurno Inteiro para representar a quantidade maxima de
      *                         unidades por turno
      */
     public Robo(String id, int tamanhoArea, int coordenadaX, int coordenadaY, String orientacao,
-            int maxMovimentos, int unidadesPorTurno) {
-        this.maxMovimentos = verificaMovimentos(maxMovimentos);
+            int movimentos, int unidadesPorTurno) {
+        this.id = id;
+        this.movimentos = verificaMovimentos(movimentos);
 
         if (tamanhoArea >= MIN) {
             this.tamanhoArea = tamanhoArea;
+        } else {
+            this.tamanhoArea = MAX;
         }
 
         if (verificaOrientacao(orientacao)) {
@@ -49,38 +53,68 @@ public class Robo {
             this.orientacao = "Norte";
         }
 
-        this.id = id;
-        this.coordenadaX = coordenadaX;
-        this.coordenadaY = coordenadaY;
-        this.unidadesPorTurno = unidadesPorTurno;
+        if (verificaCoordenada(coordenadaX, coordenadaY)) {
+            this.coordenadaX = coordenadaX;
+            this.coordenadaY = coordenadaY;
+        } else {
+            this.orientacao = "Norte";
+            Random r = new Random(this.tamanhoArea++);
+            Random r2 = new Random(this.tamanhoArea++);
+            this.coordenadaX = r.nextInt();
+            this.coordenadaY = r2.nextInt();
+        }
+
+        if (verificaTurnos(unidadesPorTurno)) {
+            this.unidadesPorTurno = unidadesPorTurno;
+        } else {
+            this.unidadesPorTurno = MAX;
+        }
+
     }
 
-    private int verificaMovimentos(int maxMovimentos) {
-        if (maxMovimentos >= MIN && maxMovimentos <= MAX) {
-            return maxMovimentos;
+    public int verificaMovimentos(int movimentos) {
+        if (movimentos >= MIN && movimentos <= MAX) {
+            return movimentos;
         }
-        if (maxMovimentos > MAX) {
+        if (movimentos > MAX) {
             return MAX;
         }
         return MIN;
     }
 
     /**
-     * @return the maxMovimentos
+     * retorna o numero de movimentos ainda restantes
+     * 
+     * @return the movimentos
      */
-    public int getMaxMovimentos() {
-        return maxMovimentos;
+    public int getMovimentos() {
+        return movimentos;
     }
 
-    private boolean verificaOrientacao(String orientacao) {
+    /**
+     * @return the plano
+     */
+    public String[] getPlano() {
+        return plano;
+    }
+
+    /**
+     * Função de verificação de strings passadas no construtor da função
+     * 
+     * @param orientacao String podendo ser "Sul, Norte, Leste, Oeste"
+     * @return
+     *         True caso a String corresponda a um nome valido,
+     *         False caso a String passada seja invalida
+     */
+    public boolean verificaOrientacao(String orientacao) {
         return (orientacao == "Norte" || orientacao == "Sul" || orientacao == "Leste" || orientacao == "Oeste");
     }
 
-    private boolean verificaCoordenada(int coordenadaX, int coordenadaY) {
+    public boolean verificaCoordenada(int coordenadaX, int coordenadaY) {
         return true;
     }
 
-    private boolean verificaTurnos(int unidadesPorTurno) {
+    public boolean verificaTurnos(int unidadesPorTurno) {
         return true;
     }
 
@@ -93,7 +127,7 @@ public class Robo {
         return "";
     }
 
-    public String girarRobo() {
+    public String girarRobo(char comando) {
         return "";
     }
 
