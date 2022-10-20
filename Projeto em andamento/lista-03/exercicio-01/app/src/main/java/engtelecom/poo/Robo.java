@@ -72,8 +72,16 @@ public class Robo {
 
     }
 
+    /**
+     * Retorna o numero de movimentos que o robo pode executar
+     * 
+     * @param movimentos Integer para representar os movimentos do robo
+     * @return retorna MAX caso o numero de movimentos seja maior que 100, retorna
+     *         MIN caso seja repassado um numero menor/igual à 0 e caso seja
+     *         informado um numero entre MIN e MAX, retorna o numero repassado
+     */
     public int verificaMovimentos(int movimentos) {
-        if (movimentos >= MIN && movimentos <= MAX) {
+        if (movimentos > MIN && movimentos <= MAX) {
             return movimentos;
         }
         if (movimentos > MAX) {
@@ -110,12 +118,38 @@ public class Robo {
         return (orientacao == "Norte" || orientacao == "Sul" || orientacao == "Leste" || orientacao == "Oeste");
     }
 
+    /**
+     * Verifica se os valores repassados para posição (x,y) do robo, estão dentro da
+     * área de exploração
+     * 
+     * @param coordenadaX Integer Valor inicial do robo na coordenada X
+     * @param coordenadaY Integer Valor inicial do robo na coordenada Y
+     * @return True caso a área de X e Y estejam dentro da area de exploração, ou
+     *         seja, entre MIN até o valor maximo da area de exploração, e caso os
+     *         valores sejam invalidos, retorna False
+     */
     public boolean verificaCoordenada(int coordenadaX, int coordenadaY) {
-        return true;
+        if (coordenadaX <= this.tamanhoArea && coordenadaY <= this.tamanhoArea && coordenadaX >= MIN
+                && coordenadaY >= MIN) {
+            return true;
+        }
+        return false;
     }
 
+    /**
+     * Verifica se as unidades que o robo vai executar, estão dentre os valores MAX
+     * e MIN
+     * 
+     * @param unidadesPorTurno Integer para representar o numero de unidades que o
+     *                         robo vai se movimentar por turno
+     * @return True caso o inteiro estiver entre MIN e MAX e caso não esteja, vai
+     *         retornar False
+     */
     public boolean verificaTurnos(int unidadesPorTurno) {
-        return true;
+        if (unidadesPorTurno <= MAX && unidadesPorTurno > MIN) {
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -123,6 +157,7 @@ public class Robo {
         return "coordenadaX=" + coordenadaX + ", coordenadaY=" + coordenadaY + ", " + orientacao + "";
     }
 
+    
     public String getCoordenadaAnterior() {
         return "";
     }
