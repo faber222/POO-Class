@@ -13,13 +13,10 @@ public class Email {
     public Email() {
     }
 
-   
-    String email = "meu.email@dominio.com.br";
-    // System.out.println("Email valido? "+email.matches(eR));
-
     public boolean add(String rotulo, String email) {
-        if (!rotulo.isEmpty()) {
-         
+        if (!rotulo.isEmpty() && validaEmail(email) && !existeEmail(rotulo)) {
+            this.dados.put(rotulo, email);
+            return true;
         }
         return false;
     }
@@ -31,10 +28,21 @@ public class Email {
     public boolean update(String rotulo, String email) {
         return false;
     }
-    
+
     @Override
     public String toString() {
         return "Email [dados=" + dados + "]";
     }
-    
+
+    public boolean validaEmail(String email) {
+        return (email.matches(eR));
+    }
+
+    public boolean existeEmail(String rotulo) {
+        if (dados.get(rotulo) != null) {
+            return true;
+        }
+        return false;
+    }
+
 }
