@@ -5,11 +5,8 @@ import java.util.HashMap;
 public class Email {
     private HashMap<String, String> dados = new HashMap<>();
 
-    private final String eR = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+    private final String ER = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
 
-    /**
-     * @param dados
-     */
     public Email() {
     }
 
@@ -22,27 +19,33 @@ public class Email {
     }
 
     public boolean remover(String rotulo) {
+        if (existeEmail(rotulo)) {
+            this.dados.remove(rotulo);
+            return true;
+        }
         return false;
     }
 
     public boolean update(String rotulo, String email) {
+        if (validaEmail(email) && existeEmail(rotulo) && !rotulo.isEmpty()) {
+            this.dados.remove(rotulo);
+            this.dados.put(rotulo, email);
+            return true;
+        }
         return false;
     }
 
     @Override
     public String toString() {
-        return "Email [dados=" + dados + "]";
+        return "" + dados + "";
     }
 
-    public boolean validaEmail(String email) {
-        return (email.matches(eR));
+    private boolean validaEmail(String email) {
+        return (email.matches(ER));
     }
 
-    public boolean existeEmail(String rotulo) {
-        if (dados.get(rotulo) != null) {
-            return true;
-        }
-        return false;
+    private boolean existeEmail(String rotulo) {
+            return (dados.get(rotulo) != null);
     }
 
 }

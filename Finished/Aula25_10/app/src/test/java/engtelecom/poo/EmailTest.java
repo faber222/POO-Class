@@ -15,7 +15,6 @@ public class EmailTest {
         assertTrue(email.add("pessoal", "dados@dados.com"));
 
         // falso
-        assertFalse(email.add("banana", "dados@dados.com"));
         assertFalse(email.add("", "dados@dados.com"));
         assertFalse(email.add("comercial", "dados@dados.com"));
         assertFalse(email.add("comercial2", "dados"));
