@@ -45,13 +45,21 @@ public class AgendaTest {
     public void addEmail() {
         Agenda agenda = new Agenda();
 
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
+        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.now());
+        Pessoa pessoa3 = new Pessoa("Tulipa", "Alvares", LocalDate.now());
+
+        agenda.addPessoa(pessoa1);
+        agenda.addPessoa(pessoa2);
+        agenda.addPessoa(pessoa3);
+
         // verdadeiro
         assertTrue(agenda.addEmail("comercial", "dados@dados.com", 0));
         assertTrue(agenda.addEmail("pessoal", "dados@dados.com", 1));
 
         // falso
         assertFalse(agenda.addEmail("", "dados@dados.com", 2));
-        assertFalse(agenda.addEmail("comercial", "dados@dados.com", 2));
+        assertFalse(agenda.addEmail("comercial", "dados@dados.com", 0));
         assertFalse(agenda.addEmail("comercial2", "dados", 2));
         assertFalse(agenda.addEmail("comercial3", "dados@", 2));
         assertFalse(agenda.addEmail("comercial4", "dados@dados", 2));
