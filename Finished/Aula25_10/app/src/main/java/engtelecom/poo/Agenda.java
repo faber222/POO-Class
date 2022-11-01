@@ -35,6 +35,7 @@ public class Agenda {
             for (Pessoa list : this.contatos) {
                 if (x == pIndex) {
                     if (list.addEmail(r, e)) {
+                        list.addEmail(r, e);
                         this.contatos.set(pIndex, list);
                         return true;
                     }
@@ -46,22 +47,83 @@ public class Agenda {
     }
 
     public boolean addTelefone(String r, String n, int pIndex) {
+        int i = 0;
+        if (!this.contatos.isEmpty()) {
+            for (Pessoa list : this.contatos) {
+                if (i == pIndex) {
+                    if (list.addTelefone(r, n)) {
+                        list.addTelefone(r, n);
+                        this.contatos.set(pIndex, list);
+                        return true;
+                    }
+                }
+                i++;
+            }
+        }
         return false;
     }
 
     public boolean removeEmail(String r, int pIndex) {
+        int i = 0;
+        for (Pessoa list : this.contatos) {
+            if (i == pIndex) {
+                if (list.removeEmail(r)) {
+                    list.removeEmail(r);
+                    this.contatos.set(pIndex, list);
+                    return true;
+                }
+            }
+            i++;
+        }
         return false;
     }
 
-    public boolean removeTelefone(String r, int pIndex) {
+    public boolean removeTelefones(String r, int pIndex) {
+        int i = 0;
+        for (Pessoa list : this.contatos) {
+            if (i == pIndex) {
+                if (list.removeTelefone(r)) {
+                    list.removeTelefone(r);
+                    this.contatos.set(pIndex, list);
+                    return true;
+                }
+            }
+            i++;
+        }
         return false;
     }
 
     public boolean updateEmail(String r, String e, int pIndex) {
+        int i = 0;
+        if (!this.contatos.isEmpty()) {
+            for (Pessoa list : this.contatos) {
+                if (i == pIndex) {
+                    if (list.updateEmail(r, e)) {
+                        list.updateEmail(r, e);
+                        this.contatos.set(pIndex, list);
+                        return true;
+                    }
+                }
+                i++;
+            }
+        }
         return false;
     }
 
     public boolean updateTelefone(String r, String n, int pIndex) {
+        int i = 0;
+        if (!this.contatos.isEmpty()) {
+            for (Pessoa list : this.contatos) {
+                if (i == pIndex) {
+                    if (list.updateTelefone(r, n)) {
+                        list.updateTelefone(r, n);
+                        this.contatos.set(pIndex, list);
+                        return true;
+                    }
+                }
+                i++;
+            }
+        }
         return false;
     }
 
