@@ -53,11 +53,9 @@ public class AgendaTest {
         agenda.addPessoa(pessoa2);
         agenda.addPessoa(pessoa3);
 
-        // verdadeiro
         assertTrue(agenda.addEmail("comercial", "dados@dados.com", 0));
         assertTrue(agenda.addEmail("pessoal", "dados@dados.com", 1));
 
-        // falso
         assertFalse(agenda.addEmail("", "dados@dados.com", 2));
         assertFalse(agenda.addEmail("comercial", "dados@dados.com", 0));
         assertFalse(agenda.addEmail("comercial2", "dados", 2));
@@ -79,7 +77,12 @@ public class AgendaTest {
     @Test
     public void addTelefone() {
         Agenda agenda = new Agenda();
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
+
+        agenda.addPessoa(pessoa1);
+
         assertTrue(agenda.addTelefone("comercial", "5548996422103", 0));
+        assertTrue(agenda.addTelefone("pessoal", "5548996422103", 0));
 
         assertFalse(agenda.addTelefone("comercial", "5548996422103", 0));
         assertFalse(agenda.addTelefone("", "5548996422103", 0));
@@ -88,67 +91,82 @@ public class AgendaTest {
 
     @Test
     public void removeEmail() {
-        Agenda teste3 = new Agenda();
+        Agenda agenda = new Agenda();
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
 
-        teste3.addEmail("comercial", "dados@dados.com", 0);
-        teste3.addEmail("pessoal", "dados2@dados.com", 0);
+        agenda.addPessoa(pessoa1);
 
-        assertTrue(teste3.removeEmail("comercial", 0));
-        assertFalse(teste3.removeEmail("comercial", 0));
-        assertTrue(teste3.removeEmail("pessoal", 0));
-        assertFalse(teste3.removeEmail("pessoal", 0));
-        assertFalse(teste3.removeEmail("", 0));
-        assertFalse(teste3.removeEmail("banana", 0));
+        agenda.addEmail("comercial", "dados@dados.com", 0);
+        agenda.addEmail("pessoal", "dados2@dados.com", 0);
+
+        assertTrue(agenda.removeEmail("comercial", 0));
+        assertFalse(agenda.removeEmail("comercial", 0));
+        assertTrue(agenda.removeEmail("pessoal", 0));
+        assertFalse(agenda.removeEmail("pessoal", 0));
+        assertFalse(agenda.removeEmail("", 0));
+        assertFalse(agenda.removeEmail("banana", 0));
     }
 
     @Test
-    public void removeTelefone() {
+    public void removeTelefones() {
         Agenda agenda = new Agenda();
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
 
+        agenda.addPessoa(pessoa1);
+     
         agenda.addTelefone("comercial", "5548996422103", 0);
         agenda.addTelefone("celular", "5548996422103", 0);
 
-        assertTrue(agenda.removeTelefone("comercial", 0));
-        assertTrue(agenda.removeTelefone("celular", 0));
+        assertTrue(agenda.removeTelefones("comercial", 0));
+        assertTrue(agenda.removeTelefones("celular", 0));
 
-        assertFalse(agenda.removeTelefone("comercial", 0));
-        assertFalse(agenda.removeTelefone("celular", 0));
-        assertFalse(agenda.removeTelefone("", 0));
-        assertFalse(agenda.removeTelefone("banana", 0));
+        assertFalse(agenda.removeTelefones("comercial", 0));
+        assertFalse(agenda.removeTelefones("celular", 0));
+        assertFalse(agenda.removeTelefones("", 0));
+        assertFalse(agenda.removeTelefones("banana", 0));
     }
 
     @Test
     public void updateEmail() {
         Agenda agenda = new Agenda();
 
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
+        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.now());
+        Pessoa pessoa3 = new Pessoa("Tulipa", "Alvares", LocalDate.now());
+
+        agenda.addPessoa(pessoa1);
+        agenda.addPessoa(pessoa2);
+        agenda.addPessoa(pessoa3);
+
         agenda.addEmail("comercial", "dados@dados.com", 0);
-        agenda.addEmail("pessoal", "dados2@dados.com", 0);
+        agenda.addEmail("pessoal", "dados2@dados.com", 1);
 
-        // verdadeiro
-        assertTrue(agenda.updateEmail("comercial", "dados@gmail.com", 0));
-        assertTrue(agenda.updateEmail("pessoal", "dados@gmail.com", 0));
+        assertTrue(agenda.updateEmail("comercial", "dados@dados.com", 0));
+        assertTrue(agenda.updateEmail("pessoal", "dados@dados.com", 1));
 
-        // falso
-        assertFalse(agenda.updateEmail("banana", "dados@gmail.com", 0));
-        assertFalse(agenda.updateEmail("maça", "dados@gmail.com", 0));
-        assertFalse(agenda.updateEmail("comercial", "dados", 0));
-        assertFalse(agenda.updateEmail("comercial", "dados@", 0));
-        assertFalse(agenda.updateEmail("comercial", "dados@dados", 0));
-        assertFalse(agenda.updateEmail("comercial", "dados@dados.", 0));
-        assertFalse(agenda.updateEmail("comercial", "dados@dados.c", 0));
-        assertFalse(agenda.updateEmail("comercial", ".com", 0));
-        assertFalse(agenda.updateEmail("comercial", "dados.com", 0));
-        assertFalse(agenda.updateEmail("comercial", "@dados.com", 0));
-        assertFalse(agenda.updateEmail("comercial", ".@dados.com", 0));
-        assertFalse(agenda.updateEmail("comercial", ".@.com", 0));
-        assertFalse(agenda.updateEmail("comercial", "", 0));
-        assertFalse(agenda.updateEmail("comercial", "@", 0));
-        assertFalse(agenda.updateEmail("comercial", ".", 0));
+        assertFalse(agenda.updateEmail("", "dados@dados.com", 2));
+        assertFalse(agenda.updateEmail("comercial2", "dados", 2));
+        assertFalse(agenda.updateEmail("comercial3", "dados@", 2));
+        assertFalse(agenda.updateEmail("comercial4", "dados@dados", 2));
+        assertFalse(agenda.updateEmail("comercial5", "dados@dados.", 2));
+        assertFalse(agenda.updateEmail("comercial6", "dados@dados.c", 2));
+        assertFalse(agenda.updateEmail("comercial7", ".com", 2));
+        assertFalse(agenda.updateEmail("comercial8", "dados.com", 2));
+        assertFalse(agenda.updateEmail("comercial9", "@dados.com", 2));
+        assertFalse(agenda.updateEmail("comercial12", ".@dados.com", 2));
+        assertFalse(agenda.updateEmail("comercial11", ".@.com", 2));
+        assertFalse(agenda.updateEmail("comercial12", "", 2));
+        assertFalse(agenda.updateEmail("comercial13", "@", 2));
+        assertFalse(agenda.updateEmail("comercial14", ".", 2));
+        assertFalse(agenda.updateEmail("comercial15", "dados@.com", 2));
     }
 
     @Test
     public void updateTelefone() {
         Agenda agenda = new Agenda();
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
+
+        agenda.addPessoa(pessoa1);
 
         agenda.addTelefone("comercial", "5548996422103", 0);
         agenda.addTelefone("celular", "5548996422103", 0);
