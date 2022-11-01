@@ -11,8 +11,8 @@ public class AgendaTest {
     @Test
     public void addPessoa() {
         Agenda agenda = new Agenda();
-        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
-        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.now());
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.of(2001, 9, 3));
+        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.of(2001, 9, 3));
 
         assertTrue(agenda.addPessoa(pessoa1));
         assertTrue(agenda.addPessoa(pessoa2));
@@ -25,9 +25,9 @@ public class AgendaTest {
     public void removePessoa() {
         Agenda agenda = new Agenda();
 
-        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
-        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.now());
-        Pessoa pessoa3 = new Pessoa("Tulipa", "Alvares", LocalDate.now());
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.of(2001, 9, 3));
+        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.of(2000, 8, 22));
+        Pessoa pessoa3 = new Pessoa("Tulipa", "Alvares", LocalDate.of(2001, 9, 3));
 
         agenda.addPessoa(pessoa1);
         agenda.addPessoa(pessoa2);
@@ -45,9 +45,9 @@ public class AgendaTest {
     public void addEmail() {
         Agenda agenda = new Agenda();
 
-        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
-        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.now());
-        Pessoa pessoa3 = new Pessoa("Tulipa", "Alvares", LocalDate.now());
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.of(2001, 9, 3));
+        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.of(2000, 8, 22));
+        Pessoa pessoa3 = new Pessoa("Tulipa", "Alvares", LocalDate.of(2001, 9, 3));
 
         agenda.addPessoa(pessoa1);
         agenda.addPessoa(pessoa2);
@@ -77,7 +77,7 @@ public class AgendaTest {
     @Test
     public void addTelefone() {
         Agenda agenda = new Agenda();
-        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.of(2001, 9, 3));
 
         agenda.addPessoa(pessoa1);
 
@@ -92,7 +92,7 @@ public class AgendaTest {
     @Test
     public void removeEmail() {
         Agenda agenda = new Agenda();
-        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.of(2001, 9, 3));
 
         agenda.addPessoa(pessoa1);
 
@@ -110,10 +110,10 @@ public class AgendaTest {
     @Test
     public void removeTelefones() {
         Agenda agenda = new Agenda();
-        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.of(2001, 9, 3));
 
         agenda.addPessoa(pessoa1);
-     
+
         agenda.addTelefone("comercial", "5548996422103", 0);
         agenda.addTelefone("celular", "5548996422103", 0);
 
@@ -130,9 +130,9 @@ public class AgendaTest {
     public void updateEmail() {
         Agenda agenda = new Agenda();
 
-        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
-        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.now());
-        Pessoa pessoa3 = new Pessoa("Tulipa", "Alvares", LocalDate.now());
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.of(2001, 9, 3));
+        Pessoa pessoa2 = new Pessoa("Yasmim", "Schmitz", LocalDate.of(2000, 8, 22));
+        Pessoa pessoa3 = new Pessoa("Tulipa", "Alvares", LocalDate.of(2001, 9, 3));
 
         agenda.addPessoa(pessoa1);
         agenda.addPessoa(pessoa2);
@@ -164,7 +164,7 @@ public class AgendaTest {
     @Test
     public void updateTelefone() {
         Agenda agenda = new Agenda();
-        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.now());
+        Pessoa pessoa1 = new Pessoa("Faber", "Bernardo", LocalDate.of(2001, 9, 3));
 
         agenda.addPessoa(pessoa1);
 

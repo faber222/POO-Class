@@ -37,8 +37,15 @@ public class Telefone {
         return false;
     }
 
-    public String toString(String rotulo) throws ParseException {
-        return formata(this.dados.get(rotulo));
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        dados.forEach((c, v) -> {
+            sb.append(c + " : " + formata(v));
+        });
+
+        return sb.toString();
     }
 
     private boolean verificaNumero(String numero) {

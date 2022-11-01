@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class PessoaTest {
     @Test
     public void addEmail() {
-        Pessoa teste1 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.now());
+        Pessoa teste1 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.of(2001, 9, 3));
 
         // verdadeiro
         assertTrue(teste1.addEmail("comercial", "dados@dados.com"));
@@ -37,7 +37,7 @@ public class PessoaTest {
 
     @Test
     public void addTelefone() {
-        Pessoa teste2 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.now());
+        Pessoa teste2 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.of(2001, 9, 3));
         assertTrue(teste2.addTelefone("comercial", "5548996422103"));
 
         assertFalse(teste2.addTelefone("comercial", "5548996422103"));
@@ -45,9 +45,9 @@ public class PessoaTest {
         assertFalse(teste2.addTelefone("comercial", ""));
     }
 
-    @Test 
+    @Test
     public void removeEmail() {
-        Pessoa teste3 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.now());
+        Pessoa teste3 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.of(2001, 9, 3));
 
         teste3.addEmail("comercial", "dados@dados.com");
         teste3.addEmail("pessoal", "dados2@dados.com");
@@ -60,9 +60,9 @@ public class PessoaTest {
         assertFalse(teste3.removeEmail("banana"));
     }
 
-    @Test 
+    @Test
     public void removeTelefone() {
-        Pessoa teste4 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.now());
+        Pessoa teste4 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.of(2001, 9, 3));
 
         teste4.addTelefone("comercial", "5548996422103");
         teste4.addTelefone("celular", "5548996422103");
@@ -76,9 +76,9 @@ public class PessoaTest {
         assertFalse(teste4.removeTelefone("banana"));
     }
 
-    @Test 
+    @Test
     public void updateEmail() {
-        Pessoa teste5 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.now());
+        Pessoa teste5 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.of(2001, 9, 3));
 
         teste5.addEmail("comercial", "dados@dados.com");
         teste5.addEmail("pessoal", "dados2@dados.com");
@@ -105,9 +105,9 @@ public class PessoaTest {
         assertFalse(teste5.updateEmail("comercial", "."));
     }
 
-    @Test 
+    @Test
     public void updateTelefone() {
-        Pessoa teste6 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.now());
+        Pessoa teste6 = new Pessoa("Faber", "Bernardo Júnior", LocalDate.of(2001, 9, 3));
 
         teste6.addTelefone("comercial", "5548996422103");
         teste6.addTelefone("celular", "5548996422103");

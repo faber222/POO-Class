@@ -10,9 +10,8 @@ public class Agenda {
     }
 
     public boolean addPessoa(Pessoa p) {
-        if (!verificaExistencia(this.contatos, p)) {
-            this.contatos.add(p);
-            return true;
+        if (!verificaExistencia(p)) {
+            return this.contatos.add(p);
         }
         return false;
     }
@@ -20,7 +19,7 @@ public class Agenda {
     public boolean removePessoa(String n, String s) {
         int i = 0;
         for (Pessoa x : this.contatos) {
-            if (x.getNome() == n && x.getSobrenome() == s) {
+            if (x.getNome().equals(n) && x.getSobrenome().equals(s)) {
                 this.contatos.remove(i);
                 return true;
             }
@@ -127,18 +126,24 @@ public class Agenda {
         return false;
     }
 
-    private boolean verificaExistencia(ArrayList<Pessoa> lista, Pessoa p) {
+    private boolean verificaExistencia(Pessoa p) {
         for (Pessoa x : this.contatos) {
-            if (x.getNome() == p.getNome() && x.getSobrenome() == p.getSobrenome()) {
+            if (x.getNome().equals(p.getNome()) && x.getSobrenome().equals(p.getSobrenome())) {
                 return true;
             }
         }
         return false;
     }
 
+    
+
     @Override
     public String toString() {
-        return super.toString();
+        return "Contatos : " + contatos + "";
+    }
+    
+    public ArrayList<Pessoa> getContatos() {
+        return contatos;
     }
 
 }

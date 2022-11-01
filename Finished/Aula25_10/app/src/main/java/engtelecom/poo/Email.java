@@ -37,7 +37,13 @@ public class Email {
 
     @Override
     public String toString() {
-        return "" + dados + "";
+        StringBuilder sb = new StringBuilder();
+
+        dados.forEach((c, v) -> {
+            sb.append(c + " : " + v);
+        });
+
+        return sb.toString();
     }
 
     private boolean validaEmail(String email) {
@@ -45,7 +51,7 @@ public class Email {
     }
 
     private boolean existeEmail(String rotulo) {
-            return (dados.get(rotulo) != null);
+        return (dados.get(rotulo) != null);
     }
 
 }

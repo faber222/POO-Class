@@ -54,10 +54,6 @@ public class TelefoneTest {
     public void verificaToString(){
         Telefone telefone = new Telefone();
         telefone.add("comercial", "5548996422103");
-        try {
-            assertEquals("+55(48) 9 9642-2103", telefone.toString("comercial"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        assertEquals("comercial : +55(48) 9 9642-2103", telefone.toString());
     }
 }

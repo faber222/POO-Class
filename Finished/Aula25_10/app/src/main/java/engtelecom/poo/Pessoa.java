@@ -60,8 +60,8 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa [nome=" + nome + ", sobrenome=" + sobrenome + ", dataNasc=" + dataNasc + ", telefones="
-                + telefones + ", emails=" + emails + "]";
+        return "Nome : " + nome + ", sobrenome : " + sobrenome + ", dataNasc : " + dataNasc + ", telefone : "
+                + telefones + ", email : " + emails + "";
     }
 
 }
