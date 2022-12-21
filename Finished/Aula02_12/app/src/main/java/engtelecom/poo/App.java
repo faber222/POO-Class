@@ -78,7 +78,7 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
         // app.sobreEscrever();
-        // app.ler();
+        app.ler();
         Pessoa p = new Pessoa("Faber", "110299079-51");
         app.salvarPessoas(p);
         System.out.println(app.lerPessoa());
