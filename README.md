@@ -1,13 +1,13 @@
 # POO Aulas #
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/faber222/poo-aulas?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/faber222/POO-Class?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/faber222/poo-aulas?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/faber222/POO-Class?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/faber222/poo-aulas?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/faber222/POO-Class?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/faber222/poo-aulas?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/faber222/POO-Class?color=56BEB8">
 
 </p>
 
@@ -38,6 +38,7 @@ The following tools were used in this project:
 - [Git](https://git-scm.com/)
 - [GitHub](https://github.com/faber222/)
 - [JDK](https://jdk.java.net/18/)
+- [Gradle](https://gradle.org/)
 
 ## :white_check_mark: Requirements ##
 
@@ -50,13 +51,13 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 $ git clone https://github.com/POO29004-classroom/2022-02-listas-de-exercicios-faber222.git
 
 # Access
-$ cd ToDo
+$ cd Finished
 
-# Compile the code 
-$ javac {FileName.java}
+# inside the folder, choose some repo
+$ cd {Aula(XX_YY)}
 
 # Run the project
-$ java {FileName}
+$ gradle run
 
 ```
 
